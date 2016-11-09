@@ -7,6 +7,7 @@
 <dom-module id="simple-search">
     <template>
         <style include="simple-search-styles"></style>
+        <iron-a11y-keys target="{{searchInput}}" keys="enter" on-keys-pressed="searchAction"></iron-a11y-keys>
         <div class$="{{_toggleClass}}">
             <div class="flex-horizontal">
                 <div>
@@ -24,7 +25,7 @@
                     <paper-input id="searchInput" no-label-float placeholder="Search"></paper-input>
                 </div>
                 <div class="trigger-search">
-                    <paper-icon-button icon="icons:search"></paper-icon-button>
+                    <paper-icon-button on-tap="searchAction" icon="icons:search"></paper-icon-button>
                 </div>
             </div>
         </div>
@@ -62,6 +63,9 @@
                 this._toggleClass = "opened";
             }
 
+        },
+        searchAction: function(){
+            this.fire("search", this.$$("#searchInput").value);
         },
         ready: function() {
             this.isOpen = this.staticOpen;
