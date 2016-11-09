@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../components/webcomponentsjs/webcomponents-lite.min.js"></script>
+        <link rel="import" href="../components/app-route/app-route.html">
+        <link rel="import" href="../components/app-route/app-location.html">
+    </head>
+    <body>
+        <test-element></test-element>
+
+    <dom-module id="test-element">
+        <template>
+            <div ng-show="(data.page == 'user')">
+                User: {{data.userName}}
+            </div>
+            <app-location route="{{route}}" use-hash-as-path></app-location>
+            <app-route route="{{route}}" pattern=":page/:userName"
+            data="{{data}}" tail="{{tail}}">
+
+            </app-route>
+        </template>
+    </dom-module>
+
+    <script>
+        HTMLImports.whenReady(function() {
+            Polymer({
+                is: 'test-element',
+                properties: {
+                    route: {
+                        type: Object
+                    },
+                    data: {
+                        type: Object
+                    },
+                    tail: {
+                        type: Object
+                    }
+                },
+                ready: function() {
+                    console.log('route is ', this.route);
+                }
+            });
+        });
+
+    </script>
+    </body>
+</html>

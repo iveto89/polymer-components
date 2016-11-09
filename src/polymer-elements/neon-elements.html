@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../components/webcomponentsjs/webcomponents-lite.min.js"></script>
+        <link rel="import" href="../elements/scale-down.html">
+    </head>
+    <body unresolved>
+        <scale-down>Hello everybody</scale-down>
+        <script>
+            document.querySelector('scale-down').onclick = function() {
+                this.animate();
+            }
+        </script>
+    </body>
+</html>

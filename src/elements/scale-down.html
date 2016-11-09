@@ -1,0 +1,43 @@
+<link rel="import" href="../components/polymer/polymer.html">
+<link rel="import" href="../components/neon-animation/neon-animation-runner-behavior.html">
+<link rel="import" href="../components/neon-animation/animations/scale-down-animation.html">
+
+<dom-module is="scale-down">
+    <template>
+        <style>
+            :host {
+                position:absolute;
+            }
+        </style>
+        <content></content>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({
+        is: 'scale-down',
+        behaviors: [
+            Polymer.NeonAnimationRunnerBehavior
+        ],
+        properties: {
+            animationConfig: {
+                type: Object,
+                value: function() {
+                    return {
+                        name: 'scale-down-animation',
+                        node: this
+                    }
+                }
+            }
+        },
+        listeners: {
+            'neon-animation-finish': '_onNeonAnimationFinish'
+        },
+        animate: function() {
+            this.playAnimation();
+        },
+        _onNeonAnimationFinish: function() {
+            this.style.display = 'none';
+        }
+    });
+</script>
