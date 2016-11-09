@@ -23,8 +23,15 @@
                 <p>Dynamic Mode</p>
                 <simple-search></simple-search>
             </div>
-
         </div>
+        <script>
+            var searchElements = document.querySelectorAll('simple-search');
+            for(var i=0; i< searchElements.length; i++) {
+                searchElements[i].addEventListener("search", function(e) {
+                    alert(e.detail);
+                });
+            }
+        </script>
     </body>
 
 </html>
