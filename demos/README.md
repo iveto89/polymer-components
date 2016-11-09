@@ -8,4 +8,4 @@
 5. Run "bower install"
 5. Run "npm install -g polyserve"
 6. Run polyserve
-7. You can find the demos at the following site http://localhost:8080/components/polymer-components/
+7. You can find the demos at the following site http://localhost:8080/components/demos/src/
